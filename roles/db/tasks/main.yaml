@@ -19,3 +19,4 @@
     login_user: root
     login_password: "{{ a_pwd }}"
     login_host: mysql.katta.blog
+  ignore_errors: true
