@@ -2,7 +2,7 @@
   ansible.builtin.pip:
    name: PyMySQL
    executable: pip3.9
-   
+
 - name: install mysql
   ansible.builtin.package:
     name: mysql-server
@@ -17,5 +17,5 @@
 - name: connecting to mysql server
   community.mysql.mysql_info:
     login_user: root
-    login_password: "{{ pwd }}"
+    login_password: "{{ a_pwd }}"
     login_host: mysql.katta.blog
