@@ -1,0 +1,5 @@
+- name: config node js
+  hosts: backend
+  become: yes
+  roles:
+    - be

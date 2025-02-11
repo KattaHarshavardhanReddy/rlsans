@@ -1,0 +1,2 @@
+- name: disable node js
+  ansible.builtin.command: dnf module disable nodejs -y
