@@ -37,8 +37,10 @@
     src: backend.services
     dest: /etc/systemd/system/backend.service
 
-- name: connecting to mysql server
-  community.mysql.mysql_info:
+- name: import mysql data
+  community.mysql.mysql_db:
+    state: import
+    name: all
     login_user: root
     login_password: "{{ a_pwd }}"
     login_host: mysql.katta.blog
