@@ -15,6 +15,11 @@
     - PyMySQL
     - cryptography
 
+- name: install mysql
+  ansible.builtin.package:
+    name: mysql
+    state: present
+
 - name: Add the user
   ansible.builtin.user:
     name: expense
