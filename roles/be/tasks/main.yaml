@@ -34,7 +34,7 @@
 
 - name: setup backend services
   ansible.builtin.template:
-    src: backend.services
+    src: backend.service
     dest: /etc/systemd/system/backend.service
 
 - name: import mysql data
