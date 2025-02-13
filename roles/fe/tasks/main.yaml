@@ -8,3 +8,8 @@
     name: nginx
     state: started
     enabled: true
+
+- name: Remove old files
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
