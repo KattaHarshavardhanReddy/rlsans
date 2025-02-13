@@ -28,3 +28,20 @@
     dest: /app
     remote_src: yes
 
+- name: Install packages
+  community.general.npm:
+    path: /app
+
+- name: setup backend services
+  ansible.builtin.template:
+    src: backend.services
+    dest: /etc/systemd/system/backend.service
+
+- name: connecting to mysql server
+  community.mysql.mysql_info:
+    login_user: root
+    login_password: "{{ a_pwd }}"
+    login_host: mysql.katta.blog
+    target: /app/schema/backend.sql
+
+
