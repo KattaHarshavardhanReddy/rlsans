@@ -24,7 +24,7 @@
     url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
     dest: /tmp/frontend.
     
-- name: unzip the file
+- name: unzip file
   ansible.builtin.unarchive:
     src: /tmp/frontend.zip
     dest: /usr/share/nginx/html
