@@ -7,6 +7,14 @@
 - name: install node js
   ansible.builtin.command: dnf install nodejs -y
 
+- name: install python modules
+  ansible.builtin.pip:
+    name: "{{ item }}"
+    executable: pip3.9
+  loop:
+    - PyMySQL
+    - cryptography
+
 - name: Add the user
   ansible.builtin.user:
     name: expense
