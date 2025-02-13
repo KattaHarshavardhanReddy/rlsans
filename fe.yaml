@@ -1,0 +1,5 @@
+- name: config nginx
+  hosts: frontend
+  become: yes
+  roles:
+  - fe
