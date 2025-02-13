@@ -12,4 +12,20 @@
 - name: Remove old files
   ansible.builtin.file:
     path: /usr/share/nginx/html
-    state: absent
+    state: 
+    
+- name: Create a directory 
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: directory
+
+- name: Download file from a file path
+  ansible.builtin.get_url:
+    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+    dest: /tmp/frontend.
+    
+- name: unzip the file
+  ansible.builtin.unarchive:
+    src: /tmp/frontend.zip
+    dest: /usr/share/nginx/html
+    remote_src: yes
