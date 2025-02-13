@@ -22,7 +22,7 @@
 - name: Download file from a file path
   ansible.builtin.get_url:
     url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-    dest: /tmp/frontend.
+    dest: /tmp/frontend.zip
     
 - name: unzip file
   ansible.builtin.unarchive:
