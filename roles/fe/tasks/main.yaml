@@ -9,26 +9,32 @@
     state: started
     enabled: true
 
-- name: Remove old files
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
-    
-- name: Create a directory 
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
+- name: common roles
+  include_role: 
+    name: common
+    tasks_from: main
 
-- name: Download file from a file path
-  ansible.builtin.get_url:
-    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-    dest: /tmp/frontend.zip
+
+# - name: Remove old files
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html
+#     state: absent
     
-- name: unzip file
-  ansible.builtin.unarchive:
-    src: /tmp/frontend.zip
-    dest: /usr/share/nginx/html
-    remote_src: yes
+# - name: Create a directory 
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html
+#     state: directory
+
+# - name: Download file from a file path
+#   ansible.builtin.get_url:
+#     url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+#     dest: /tmp/frontend.zip
+    
+# - name: unzip file
+#   ansible.builtin.unarchive:
+#     src: /tmp/frontend.zip
+#     dest: /usr/share/nginx/html
+#     remote_src: yes
 
 - name: Connecting to nginx
   ansible.builtin.template:
